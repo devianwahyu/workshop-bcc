@@ -1,0 +1,29 @@
+Post
+- id: Int
+- id_user: Int -> references user(id)
+- content: String
+- createdAt: Timestamp
+- updatedAt: Timestamp
+    endpoint: /post
+        GET /:id    get post by id 
+        POST /      post a post
+        PUT /:id    update a post by id
+        DELETE /:id Delete a post by id
+
+Like
+- id_post: Int  references post(id)
+- id_user: Int  references user(id)
+    endpoint: /like
+        GET /   get all Like
+        POST /  like a post 
+        DELETE / dislike a post
+
+Comment
+- id: Int       primary key
+- id_user: Int  references user(id)
+- id_post: Int  references post(id)
+- content: String
+    endpoint: /content 
+        GET /:id    get comment for a post by id_post
+        PUT /:id    update comment by id
+        DELETE /:id delete comment by id
